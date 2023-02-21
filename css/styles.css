@@ -1,0 +1,41 @@
+html,body{
+    height: 100%;
+}
+body{
+    margin: 0px;
+}
+
+.weather{
+    margin-top:1rem;
+    margin-left:1rem;
+}
+.container{
+    position:relative;
+    width: 50%;
+    top:25%;
+    margin:0 auto;
+    text-align: center;
+    height: auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px;
+    padding: 2rem 0.5rem;
+ }
+
+
+h4{
+    color:red;
+    height:auto;
+    
+}
+
+.joke{
+    display: none;
+}
+
+button{
+    background-color: #3ED3DE;
+    padding: 0.4rem 0.6rem;
+    color: white;
+    border-color: #3ED3DE;
+    border-radius: 8px;
+}
