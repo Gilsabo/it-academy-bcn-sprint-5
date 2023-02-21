@@ -30,7 +30,6 @@ function onSucces(joke) {
 }
 const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const joke = yield getJokes();
         onSucces(yield getJokes());
     }
     catch (error) {
@@ -39,18 +38,4 @@ const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 const buttonJoke = document.querySelector("button");
 buttonJoke.addEventListener('click', jokeHandler);
-const geWeather = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const data = yield fetch('https://icanhazdadjoke.com/', {
-            method: 'GET',
-            headers: { 'Accept': 'application/json' }
-        });
-        const text = yield data.json();
-        console.log(text.joke);
-        return text.joke;
-    }
-    catch (error) {
-        console.log(error);
-    }
-});
 //# sourceMappingURL=index.js.map
