@@ -39,3 +39,12 @@ button{
     border-color: #3ED3DE;
     border-radius: 8px;
 }
+
+.score-box{
+    display: flex;
+    justify-content: center;
+}
+
+.one, .two, .three{
+    margin: 1rem;
+}
