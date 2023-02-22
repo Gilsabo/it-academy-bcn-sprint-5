@@ -10,14 +10,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
-const reportAcudits = [];
+const scoreButtons = document.querySelectorAll(".buttoni");
+let text;
 const getJokes = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield fetch('https://icanhazdadjoke.com/', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
-        const text = yield data.json();
+        text = yield data.json();
         return text.joke;
     }
     catch (error) {
@@ -26,7 +27,7 @@ const getJokes = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 function onSucces(joke) {
     jokeStatement.style.display = "block";
-    jokeStatement.textContent = joke;
+    return jokeStatement.textContent = joke;
 }
 const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -38,4 +39,29 @@ const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 const buttonJoke = document.querySelector("button");
 buttonJoke.addEventListener('click', jokeHandler);
+const reportAcudits = [];
+const dateToString = () => {
+    const date = new Date;
+    const stringDate = date.toISOString();
+    return stringDate;
+};
+const getTextJoke = () => __awaiter(void 0, void 0, void 0, function* () {
+    return text.joke;
+});
+class JokeInfo {
+    constructor(joke, score, date) {
+        this.joke = joke;
+        this.score = score;
+        this.date = date;
+    }
+}
+scoreButtons.forEach(button => {
+    button.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
+        const target = e.target;
+        let objectJoke = new JokeInfo(yield getTextJoke(), target.textContent, dateToString());
+        console.log(objectJoke);
+        console.log(target);
+        reportAcudits.push(objectJoke);
+    }));
+});
 //# sourceMappingURL=index.js.map
