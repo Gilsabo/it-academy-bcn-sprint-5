@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
 const scoreButtons = document.querySelectorAll(".buttoni");
+const weatherText = document.querySelector(".weather");
 let text;
 const getJokes = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -64,4 +65,30 @@ scoreButtons.forEach(button => {
         reportAcudits.push(objectJoke);
     }));
 });
+let texti;
+const getWeather = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const data = yield fetch('http://api.weatherapi.com/v1/current.json?key=a2d4b069d4874b3293d72940232302&q=Barcelona&aqi=no', {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+        });
+        texti = yield data.json();
+        return texti.current.condition.text;
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+function onSuccesWeather(weather) {
+    weatherText.textContent = weather;
+}
+const shwoWeather = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        return onSuccesWeather(yield getWeather());
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+shwoWeather();
 //# sourceMappingURL=index.js.map
