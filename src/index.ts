@@ -19,7 +19,7 @@ const getJokes = async () => {
 }
 
 let textChuck: {
-    value: string; joke: string
+    value: any; 
 }
 const getChuckNorrisJokes = async () => {
     try {
@@ -28,7 +28,7 @@ const getChuckNorrisJokes = async () => {
             headers: { 'Accept': 'application/json' }
         })
         textChuck = await data.json()
-        console.log(textChuck.value);
+        return (textChuck.value);
     } catch (error) {
         console.log(error)
     }
@@ -37,16 +37,23 @@ const getChuckNorrisJokes = async () => {
 getChuckNorrisJokes();
 
 //Function that we pass as an argument to handle the result in the next function
-function onSucces(joke: string) {
+function onSucces(joke: string, getChuckNorrisJokes:string) {
+    let randomNumber :number = Math.floor((Math.random()*2) + 1);
+    if (randomNumber %2 === 0){
     jokeStatement!.style.display = "block"
     return jokeStatement!.textContent = joke
+    }else {
+    jokeStatement!.style.display = "block"
+    return jokeStatement!.textContent = getChuckNorrisJokes;
+
+    }
 }
 
 
 //function to handle the result.
 const jokeHandler = async () => {
     try {
-        onSucces(await getJokes())
+        onSucces(await getJokes(), await getChuckNorrisJokes())
     } catch (error) {
         console.log(error)
     }

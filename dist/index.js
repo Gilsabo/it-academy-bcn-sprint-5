@@ -34,20 +34,27 @@ const getChuckNorrisJokes = () => __awaiter(void 0, void 0, void 0, function* ()
             headers: { 'Accept': 'application/json' }
         });
         textChuck = yield data.json();
-        console.log(textChuck.value);
+        return (textChuck.value);
     }
     catch (error) {
         console.log(error);
     }
 });
 getChuckNorrisJokes();
-function onSucces(joke) {
-    jokeStatement.style.display = "block";
-    return jokeStatement.textContent = joke;
+function onSucces(joke, getChuckNorrisJokes) {
+    let randomNumber = Math.floor((Math.random() * 2) + 1);
+    if (randomNumber % 2 === 0) {
+        jokeStatement.style.display = "block";
+        return jokeStatement.textContent = joke;
+    }
+    else {
+        jokeStatement.style.display = "block";
+        return jokeStatement.textContent = getChuckNorrisJokes;
+    }
 }
 const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        onSucces(yield getJokes());
+        onSucces(yield getJokes(), yield getChuckNorrisJokes());
     }
     catch (error) {
         console.log(error);
