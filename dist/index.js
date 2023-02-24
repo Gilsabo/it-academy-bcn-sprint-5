@@ -41,15 +41,15 @@ const getChuckNorrisJokes = () => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 getChuckNorrisJokes();
-function onSucces(joke, getChuckNorrisJokes) {
+function onSucces(text, textChuck) {
     let randomNumber = Math.floor((Math.random() * 2) + 1);
     if (randomNumber % 2 === 0) {
         jokeStatement.style.display = "block";
-        return jokeStatement.textContent = joke;
+        return jokeStatement.textContent = text;
     }
     else {
         jokeStatement.style.display = "block";
-        return jokeStatement.textContent = getChuckNorrisJokes;
+        return jokeStatement.textContent = textChuck;
     }
 }
 const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -81,7 +81,7 @@ class JokeInfo {
 scoreButtons.forEach(button => {
     button.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
         const target = e.target;
-        let objectJoke = new JokeInfo(yield getTextJoke(), target.textContent, dateToString());
+        let objectJoke = new JokeInfo(onSucces(yield getJokes(), yield getChuckNorrisJokes()), target.textContent, dateToString());
         console.log(objectJoke);
         console.log(target);
         reportAcudits.push(objectJoke);

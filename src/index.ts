@@ -2,7 +2,7 @@ const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
 const scoreButtons = document.querySelectorAll(".buttoni");
 const weatherText = document.querySelector(".weather");
-let text: { joke: any; };
+let text: any
 
 //Function to fetch the joke
 const getJokes = async () => {
@@ -27,24 +27,25 @@ const getChuckNorrisJokes = async () => {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         })
-        textChuck = await data.json()
+        textChuck = await data.json();
         return (textChuck.value);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
 getChuckNorrisJokes();
 
 //Function that we pass as an argument to handle the result in the next function
-function onSucces(joke: string, getChuckNorrisJokes:string) {
-    let randomNumber :number = Math.floor((Math.random()*2) + 1);
+
+function onSucces(text: string ,textChuck: string ) {
+    let randomNumber :number = Math.floor((Math.random()*2) + 1);;
     if (randomNumber %2 === 0){
-    jokeStatement!.style.display = "block"
-    return jokeStatement!.textContent = joke
+    jokeStatement!.style.display = "block";
+    return jokeStatement!.textContent = text;
     }else {
-    jokeStatement!.style.display = "block"
-    return jokeStatement!.textContent = getChuckNorrisJokes;
+    jokeStatement!.style.display = "block";
+    return jokeStatement!.textContent = textChuck;
 
     }
 }
@@ -53,7 +54,7 @@ function onSucces(joke: string, getChuckNorrisJokes:string) {
 //function to handle the result.
 const jokeHandler = async () => {
     try {
-        onSucces(await getJokes(), await getChuckNorrisJokes())
+        onSucces(await getJokes(), await getChuckNorrisJokes() )
     } catch (error) {
         console.log(error)
     }
@@ -95,7 +96,7 @@ class JokeInfo {
 scoreButtons.forEach(button => {
     button.addEventListener('click', async (e) => {
         const target = e.target as HTMLButtonElement
-        let objectJoke = new JokeInfo(await getTextJoke(), target.textContent, dateToString());
+        let objectJoke = new JokeInfo( onSucces(await getJokes(), await getChuckNorrisJokes()), target.textContent, dateToString());
         console.log(objectJoke);
         console.log(target)
         reportAcudits.push(objectJoke);
