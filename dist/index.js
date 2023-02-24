@@ -12,35 +12,34 @@ const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
 const scoreButtons = document.querySelectorAll(".buttoni");
 const weatherText = document.querySelector(".weather");
-let text;
+let textJoke;
 const getJokes = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield fetch('https://icanhazdadjoke.com/', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
-        text = yield data.json();
-        return text.joke;
+        textJoke = yield data.json();
+        return textJoke.joke;
     }
     catch (error) {
         console.log(error);
     }
 });
-let textChuck;
+let textJokeChuck;
 const getChuckNorrisJokes = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield fetch('https://api.chucknorris.io/jokes/random', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
-        textChuck = yield data.json();
-        return (textChuck.value);
+        textJokeChuck = yield data.json();
+        return textJokeChuck.value;
     }
     catch (error) {
         console.log(error);
     }
 });
-getChuckNorrisJokes();
 function onSucces(functJoke, functChuck) {
     let randomNumber = Math.floor((Math.random() * 2) + 1);
     ;
@@ -76,18 +75,10 @@ class JokeInfo {
         this.date = date;
     }
 }
-function textHandler() {
-    if (jokeStatement.textContent = text.joke) {
-        return text.joke;
-    }
-    else {
-        return textChuck.value;
-    }
-}
 scoreButtons.forEach(button => {
     button.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
         const target = e.target;
-        let objectJoke = new JokeInfo(textHandler(), target.textContent, dateToString());
+        let objectJoke = new JokeInfo(jokeStatement.textContent, target.textContent, dateToString());
         console.log(objectJoke);
         console.log(target);
         reportAcudits.push(objectJoke);
