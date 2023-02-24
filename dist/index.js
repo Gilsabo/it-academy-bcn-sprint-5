@@ -26,6 +26,21 @@ const getJokes = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
+let textChuck;
+const getChuckNorrisJokes = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const data = yield fetch('https://api.chucknorris.io/jokes/random', {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+        });
+        textChuck = yield data.json();
+        console.log(textChuck.value);
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+getChuckNorrisJokes();
 function onSucces(joke) {
     jokeStatement.style.display = "block";
     return jokeStatement.textContent = joke;
@@ -65,15 +80,15 @@ scoreButtons.forEach(button => {
         reportAcudits.push(objectJoke);
     }));
 });
-let texti;
+let textWeather;
 const getWeather = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield fetch('http://api.weatherapi.com/v1/current.json?key=a2d4b069d4874b3293d72940232302&q=Barcelona&aqi=no', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
-        texti = yield data.json();
-        return texti.current.condition.text;
+        textWeather = yield data.json();
+        return textWeather.current.condition.text;
     }
     catch (error) {
         console.log(error);

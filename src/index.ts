@@ -18,6 +18,24 @@ const getJokes = async () => {
     }
 }
 
+let textChuck: {
+    value: string; joke: string
+}
+const getChuckNorrisJokes = async () => {
+    try {
+        const data = await fetch('https://api.chucknorris.io/jokes/random', {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+        })
+        textChuck = await data.json()
+        console.log(textChuck.value);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+getChuckNorrisJokes();
+
 //Function that we pass as an argument to handle the result in the next function
 function onSucces(joke: string) {
     jokeStatement!.style.display = "block"
@@ -106,3 +124,4 @@ const shwoWeather = async () => {
 }
 
 shwoWeather();
+
