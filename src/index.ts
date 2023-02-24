@@ -2,7 +2,9 @@ const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
 const scoreButtons = document.querySelectorAll(".buttoni");
 const weatherText = document.querySelector(".weather");
-let text: any
+let text: {
+    joke: any; 
+}
 
 //Function to fetch the joke
 const getJokes = async () => {
@@ -38,17 +40,20 @@ getChuckNorrisJokes();
 
 //Function that we pass as an argument to handle the result in the next function
 
-function onSucces(text: string ,textChuck: string ) {
+
+
+function onSucces(functJoke: any, functChuck: any){
     let randomNumber :number = Math.floor((Math.random()*2) + 1);;
     if (randomNumber %2 === 0){
     jokeStatement!.style.display = "block";
-    return jokeStatement!.textContent = text;
+    return jokeStatement!.textContent = functJoke;
     }else {
     jokeStatement!.style.display = "block";
-    return jokeStatement!.textContent = textChuck;
+    return jokeStatement!.textContent = functChuck;
 
     }
 }
+
 
 
 //function to handle the result.
@@ -73,9 +78,15 @@ const dateToString = () => {
     const stringDate = date.toISOString()
     return stringDate;
 }
+
+/*
 const getTextJoke = async () => {
     return text.joke;
 }
+
+const getTextChuck = async () => {
+    return textChuck
+}*/
 
 
 class JokeInfo {
@@ -92,11 +103,24 @@ class JokeInfo {
 
 
 
+function textHandler(){
+    if (jokeStatement!.textContent = text.joke){
+    return  text.joke;
+    }else {
+    return textChuck.value;
+
+    }
+}
+
+
+
+
+
 // Save and object with the joke and score after clicking the ratings
 scoreButtons.forEach(button => {
     button.addEventListener('click', async (e) => {
         const target = e.target as HTMLButtonElement
-        let objectJoke = new JokeInfo( onSucces(await getJokes(), await getChuckNorrisJokes()), target.textContent, dateToString());
+        let objectJoke = new JokeInfo( textHandler(), target.textContent, dateToString());
         console.log(objectJoke);
         console.log(target)
         reportAcudits.push(objectJoke);

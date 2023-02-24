@@ -41,15 +41,16 @@ const getChuckNorrisJokes = () => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 getChuckNorrisJokes();
-function onSucces(text, textChuck) {
+function onSucces(functJoke, functChuck) {
     let randomNumber = Math.floor((Math.random() * 2) + 1);
+    ;
     if (randomNumber % 2 === 0) {
         jokeStatement.style.display = "block";
-        return jokeStatement.textContent = text;
+        return jokeStatement.textContent = functJoke;
     }
     else {
         jokeStatement.style.display = "block";
-        return jokeStatement.textContent = textChuck;
+        return jokeStatement.textContent = functChuck;
     }
 }
 const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -68,9 +69,6 @@ const dateToString = () => {
     const stringDate = date.toISOString();
     return stringDate;
 };
-const getTextJoke = () => __awaiter(void 0, void 0, void 0, function* () {
-    return text.joke;
-});
 class JokeInfo {
     constructor(joke, score, date) {
         this.joke = joke;
@@ -78,10 +76,18 @@ class JokeInfo {
         this.date = date;
     }
 }
+function textHandler() {
+    if (jokeStatement.textContent = text.joke) {
+        return text.joke;
+    }
+    else {
+        return textChuck.value;
+    }
+}
 scoreButtons.forEach(button => {
     button.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
         const target = e.target;
-        let objectJoke = new JokeInfo(onSucces(yield getJokes(), yield getChuckNorrisJokes()), target.textContent, dateToString());
+        let objectJoke = new JokeInfo(textHandler(), target.textContent, dateToString());
         console.log(objectJoke);
         console.log(target);
         reportAcudits.push(objectJoke);
