@@ -11,8 +11,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
 const scoreButtons = document.querySelectorAll(".buttoni");
-const weatherText = document.querySelector(".weather");
 let textJoke;
+const degrees = document.querySelector(".degrees");
+const imgWeather = document.querySelector("img");
 const getJokes = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield fetch('https://icanhazdadjoke.com/', {
@@ -45,11 +46,11 @@ function onSucces(functJoke, functChuck) {
     ;
     if (randomNumber % 2 === 0) {
         jokeStatement.style.display = "block";
-        return jokeStatement.textContent = functJoke;
+        return jokeStatement.textContent = `"${functJoke}"`;
     }
     else {
         jokeStatement.style.display = "block";
-        return jokeStatement.textContent = functChuck;
+        return jokeStatement.textContent = `"${functChuck}"`;
     }
 }
 const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -60,7 +61,7 @@ const jokeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
-const buttonJoke = document.querySelector("button");
+const buttonJoke = document.querySelector(".jokeButton");
 buttonJoke.addEventListener('click', jokeHandler);
 const reportAcudits = [];
 const dateToString = () => {
@@ -78,9 +79,9 @@ class JokeInfo {
 scoreButtons.forEach(button => {
     button.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
         const target = e.target;
-        let objectJoke = new JokeInfo(jokeStatement.textContent, target.textContent, dateToString());
+        let objectJoke = new JokeInfo(jokeStatement.textContent, target.value, dateToString());
         console.log(objectJoke);
-        console.log(target);
+        console.log(target.value);
         reportAcudits.push(objectJoke);
     }));
 });
@@ -92,14 +93,17 @@ const getWeather = () => __awaiter(void 0, void 0, void 0, function* () {
             headers: { 'Accept': 'application/json' }
         });
         textWeather = yield data.json();
-        return textWeather.current.condition.text;
+        return textWeather;
     }
     catch (error) {
         console.log(error);
     }
 });
 function onSuccesWeather(weather) {
-    weatherText.textContent = weather;
+    let stringIcon = weather.current.condition.icon;
+    let lastSeven = stringIcon.slice(-7);
+    imgWeather.src = `day/${lastSeven}`;
+    degrees.textContent = weather.current.feelslike_c;
 }
 const shwoWeather = () => __awaiter(void 0, void 0, void 0, function* () {
     try {

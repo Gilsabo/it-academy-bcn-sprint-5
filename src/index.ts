@@ -1,10 +1,12 @@
 const jokeStatement = document.getElementById("joke");
 const showDate = document.getElementsByClassName("weather")[0];
 const scoreButtons = document.querySelectorAll(".buttoni");
-const weatherText = document.querySelector(".weather");
 let textJoke: {
     joke: string;
 }
+const degrees = document.querySelector(".degrees")
+const imgWeather = document.querySelector("img"); 
+
 
 //Function to fetch the joke
 const getJokes = async () => {
@@ -45,10 +47,10 @@ function onSucces(functJoke: any, functChuck: any) {
     let randomNumber: number = Math.floor((Math.random() * 2) + 1);;
     if (randomNumber % 2 === 0) {
         jokeStatement!.style.display = "block";
-        return jokeStatement!.textContent = functJoke;
+        return jokeStatement!.textContent = `"${functJoke}"`;
     } else {
         jokeStatement!.style.display = "block";
-        return jokeStatement!.textContent = functChuck;
+        return jokeStatement!.textContent = `"${functChuck}"`;
 
     }
 }
@@ -65,7 +67,7 @@ const jokeHandler = async () => {
 }
 
 //add eventlistener to the button to show jokes
-const buttonJoke = document.querySelector("button")
+const buttonJoke = document.querySelector(".jokeButton")
 buttonJoke!.addEventListener('click', jokeHandler)
 
 
@@ -106,9 +108,9 @@ class JokeInfo {
 scoreButtons.forEach(button => {
     button.addEventListener('click', async (e) => {
         const target = e.target as HTMLButtonElement
-        let objectJoke = new JokeInfo(jokeStatement!.textContent, target.textContent, dateToString());
+        let objectJoke = new JokeInfo(jokeStatement!.textContent, target.value, dateToString());
         console.log(objectJoke);
-        console.log(target)
+        console.log(target.value)
         reportAcudits.push(objectJoke);
     })
 
@@ -123,15 +125,23 @@ const getWeather = async () => {
             headers: { 'Accept': 'application/json' }
         })
         textWeather = await data.json()
-        return textWeather.current.condition.text
+        return textWeather
     } catch (error) {
         console.log(error)
     }
 }
+
+//const weatherCode = JSON.parse(weather.json)
 // function that will print the text weather in the DOM and take the functio get weather as an argument
 function onSuccesWeather(weather: any) {
-    weatherText!.textContent = weather
+let stringIcon = weather.current.condition.icon
+let lastSeven  = stringIcon.slice(-7)
+
+
+    imgWeather!.src = `day/${lastSeven}`;
+    degrees!.textContent = weather.current.feelslike_c;
 }
+
 //function to handle the result of weather
 const shwoWeather = async () => {
     try {
