@@ -12,14 +12,30 @@ body{
 .container{
     position:relative;
     width: 50%;
-    top:25%;
     margin:0 auto;
     text-align: center;
     height: auto;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 8px;
     padding: 2rem 0.5rem;
-    background-image: url ("./images/blob(1).svg");
+   
+ }
+
+
+ .small-container-left{
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url(/repos/it-academy-bcn/sprint-5/images/blob.svg);
+    top: 60%;
+    left: 5%;
+ }
+
+
+ .small-container-left{
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url(/repos/it-academy-bcn/sprint-5/images/blob3.svg);
+    top: 60%;
+    left: 5%;
  }
 
 
