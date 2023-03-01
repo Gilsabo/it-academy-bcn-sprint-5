@@ -3,7 +3,7 @@ IT Academy Barcelona weather and jokes App sprint-5
 
 ## Description
 This is a web application built with Typescript that displays weather information and jokes fetched from two different APIs - Chuck Norris jokes and Dad jokes. The application allows the user to rate the jokes and stores their scores.This is a project for the IT Academy Barcelona.
-If you feel like laughing a little bit with lame joke, you can use with pleasure this [app](https://gilsabo.github.io/it-academy-bcn-sprint-5/)
+If you feel like laughing a little bit with lame jokes, you can use with pleasure this [app](https://gilsabo.github.io/it-academy-bcn-sprint-5/)
 ## Features
 - Displays weather information with icons and temperature
 - Fetches Chuck Norris and Dad jokes from two different APIs and displays them randomly
@@ -18,8 +18,8 @@ If you feel like laughing a little bit with lame joke, you can use with pleasure
 The following APIs are used in the project:
 
 - [Weather API](https://www.weatherapi.com/) API for weather information
-- [Chuck Norris API](https://api.chucknorris.io/)for Chuck Norris jokes
-- [Dad Jokes API](https://icanhazdadjoke.com/api )for Dad jokes
+- [Chuck Norris API](https://api.chucknorris.io/) for Chuck Norris jokes
+- [Dad Jokes API](https://icanhazdadjoke.com/api ) for Dad jokes
 
 ## Credits
 The SVG blobs used for styling were created using [Blobmaker](https://www.blobmaker.app/)
