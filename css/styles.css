@@ -33,7 +33,7 @@ body {
 .big-blob-center {
     position: absolute;
     background-repeat: no-repeat;
-    background-image: url(../images/blob4.svg);
+    background-image: url('../images/blob4.svg');
     z-index: -1;
     top: 60%;
     left: 50%;
@@ -43,7 +43,7 @@ body {
 .small-blob-left {
     position: absolute;
     background-repeat: no-repeat;
-    background-image: url(../images/blob.svg);
+    background-image: url('../images/blob.svg');
     top: 107%;
     left: -39%;
 }
@@ -52,7 +52,7 @@ body {
 .small-blob-right {
     position: absolute;
     background-repeat: no-repeat;
-    background-image: url(../images/blob1.svg);
+    background-image: url('../images/blob1.svg');
     top: -49%;
     left: 103%;
 }
