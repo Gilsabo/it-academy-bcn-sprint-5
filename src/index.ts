@@ -107,7 +107,7 @@ scoreButtons.forEach(button => {
 let textWeather: any;
 const getWeather = async () => {
     try {
-        const data = await fetch('http://api.weatherapi.com/v1/current.json?key=a2d4b069d4874b3293d72940232302&q=Barcelona&aqi=no', {
+        const data = await fetch('https://api.weatherapi.com/v1/current.json?key=a2d4b069d4874b3293d72940232302&q=Barcelona&aqi=no', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         })

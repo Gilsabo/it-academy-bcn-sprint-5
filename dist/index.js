@@ -88,7 +88,7 @@ scoreButtons.forEach(button => {
 let textWeather;
 const getWeather = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = yield fetch('http://api.weatherapi.com/v1/current.json?key=a2d4b069d4874b3293d72940232302&q=Barcelona&aqi=no', {
+        const data = yield fetch('https://api.weatherapi.com/v1/current.json?key=a2d4b069d4874b3293d72940232302&q=Barcelona&aqi=no', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
         });
