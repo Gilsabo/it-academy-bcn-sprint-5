@@ -9,6 +9,12 @@ body{
     margin-top:1rem;
     margin-left:1rem;
 }
+
+.degrees{
+    border-left: 2px solid black;
+    padding-left: 0.3rem;
+    font-size: large;
+}
 .container{
     position:relative;
     width: 50%;
@@ -17,32 +23,52 @@ body{
     height: auto;
     border-radius: 8px;
     padding: 2rem 0.5rem;
+    top: 90px;
+}
    
- }
+ 
+.big-blob-center{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-image: url(/repos/it-academy-bcn/sprint-5/images/blob4.svg);
+    top: -50%;
+    z-index: -1;
+    position: absolute;
+    top: 60%;  
+    left: 50%; 
+    transform: translate(-50%, -50%)
+    
 
 
- .small-container-left{
-    position: relative;
+}
+
+ .small-blob-left{
+    position: absolute;
     background-repeat: no-repeat;
     background-image: url(/repos/it-academy-bcn/sprint-5/images/blob.svg);
-    top: 60%;
-    left: 5%;
+    top: 107%;
+    left: -39%;
  }
 
 
- .small-container-left{
-    position: relative;
+ .small-blob-right{
+    position: absolute;
     background-repeat: no-repeat;
     background-image: url(/repos/it-academy-bcn/sprint-5/images/blob3.svg);
-    top: 60%;
-    left: 5%;
+    top: -49%;
+    left: 103%;
  }
 
+ h2{
+    color: white;
+
+ }
 
 h4{
-    color:red;
-    height:auto;
-    
+    color:white;
+    height:60px;    
+    margin:0 auto;
+    width: 550px;
 }
 
 .joke{
@@ -50,16 +76,16 @@ h4{
 }
 
 .jokeButton{
-    background-color: #3ED3DE;
+    background-color: rgb(237, 201, 81);
     padding: 0.4rem 0.6rem;
-    color: white;
-    border-color: #3ED3DE;
+    color: black;
     border-radius: 8px;
 }
 
 .score-box{
     display: flex;
     justify-content: center;
+    margin-bottom: 12px;
 }
 
 .one, .two, .three{
@@ -67,10 +93,15 @@ h4{
     border-style: none;
     background-color: transparent;
     font-size: 1.7rem;
+    cursor: pointer;
 
 }
 
 .box-weather{
     display: flex;
     align-items: center;
+    width: auto;
+    margin-left: 2rem;
+    margin-top: 1rem;
 }
+
