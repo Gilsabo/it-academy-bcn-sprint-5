@@ -1,94 +1,93 @@
-html,body{
+html,
+body {
     height: 100%;
 }
-body{
+
+body {
     margin: 0px;
 }
 
-.weather{
-    margin-top:1rem;
-    margin-left:1rem;
+.weather {
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 
-.degrees{
+.degrees {
     border-left: 2px solid black;
     padding-left: 0.3rem;
     font-size: large;
 }
-.container{
-    position:relative;
+
+.container {
+    position: relative;
     width: 50%;
-    margin:0 auto;
+    margin: 0 auto;
     text-align: center;
     height: auto;
     border-radius: 8px;
     padding: 2rem 0.5rem;
     top: 90px;
 }
-   
- 
-.big-blob-center{
+
+
+.big-blob-center {
     position: absolute;
     background-repeat: no-repeat;
     background-image: url(/repos/it-academy-bcn/sprint-5/images/blob4.svg);
-    top: -50%;
     z-index: -1;
-    position: absolute;
-    top: 60%;  
-    left: 50%; 
+    top: 60%;
+    left: 50%;
     transform: translate(-50%, -50%)
-    
-
-
 }
 
- .small-blob-left{
+.small-blob-left {
     position: absolute;
     background-repeat: no-repeat;
     background-image: url(/repos/it-academy-bcn/sprint-5/images/blob.svg);
     top: 107%;
     left: -39%;
- }
+}
 
 
- .small-blob-right{
+.small-blob-right {
     position: absolute;
     background-repeat: no-repeat;
     background-image: url(/repos/it-academy-bcn/sprint-5/images/blob3.svg);
     top: -49%;
     left: 103%;
- }
+}
 
- h2{
+h2 {
     color: white;
+}
 
- }
-
-h4{
-    color:white;
-    height:60px;    
-    margin:0 auto;
+h4 {
+    color: white;
+    height: 60px;
+    margin: 0 auto;
     width: 550px;
 }
 
-.joke{
+.joke {
     display: none;
 }
 
-.jokeButton{
+.jokeButton {
     background-color: rgb(237, 201, 81);
     padding: 0.4rem 0.6rem;
     color: black;
     border-radius: 8px;
 }
 
-.score-box{
+.score-box {
     display: flex;
     justify-content: center;
     margin-bottom: 12px;
 }
 
-.one, .two, .three{
+.one,
+.two,
+.three {
     margin: 1rem;
     border-style: none;
     background-color: transparent;
@@ -97,11 +96,10 @@ h4{
 
 }
 
-.box-weather{
+.box-weather {
     display: flex;
     align-items: center;
     width: auto;
     margin-left: 2rem;
     margin-top: 1rem;
 }
-
