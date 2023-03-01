@@ -103,7 +103,7 @@ function onSuccesWeather(weather) {
     let stringIcon = weather.current.condition.icon;
     let lastSeven = stringIcon.slice(-7);
     imgWeather.src = `day/${lastSeven}`;
-    degrees.textContent = weather.current.feelslike_c;
+    degrees.textContent = `${weather.current.feelslike_c}℃`;
 }
 const shwoWeather = () => __awaiter(void 0, void 0, void 0, function* () {
     try {

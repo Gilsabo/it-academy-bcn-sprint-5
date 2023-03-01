@@ -5,7 +5,7 @@ let textJoke: {
     joke: string;
 }
 const degrees = document.querySelector(".degrees")
-const imgWeather = document.querySelector("img"); 
+const imgWeather = document.querySelector("img");
 
 
 //Function to fetch the joke
@@ -25,6 +25,7 @@ const getJokes = async () => {
 let textJokeChuck: {
     value: string;
 }
+
 const getChuckNorrisJokes = async () => {
     try {
         const data = await fetch('https://api.chucknorris.io/jokes/random', {
@@ -40,8 +41,6 @@ const getChuckNorrisJokes = async () => {
 
 
 //Function that we pass as an argument to handle the result in the next function
-
-
 
 function onSucces(functJoke: any, functChuck: any) {
     let randomNumber: number = Math.floor((Math.random() * 2) + 1);;
@@ -72,7 +71,7 @@ buttonJoke!.addEventListener('click', jokeHandler)
 
 
 //array ob objects to report the score of each joke
-const reportAcudits: { joke: string|null, score: string | null, date: string }[] = []
+const reportAcudits: { joke: string | null, score: string | null, date: string }[] = []
 
 const dateToString = () => {
     const date = new Date;
@@ -80,29 +79,17 @@ const dateToString = () => {
     return stringDate;
 }
 
-
 class JokeInfo {
-    joke: string |null;
+    joke: string | null;
     score: string | null;
     date: string
 
-    constructor(joke: string |null, score: string | null, date: string) {
+    constructor(joke: string | null, score: string | null, date: string) {
         this.joke = joke;
         this.score = score;
         this.date = date;
     }
 }
-
-
-/*function textHandler(){
-    if (jokeStatement!.textContent = textJoke.joke) {
-        return textJoke.joke;
-    } else if(jokeStatement!.textContent = textJokeChuck.value){
-        return textJokeChuck.value;
-
-    }
-}*/
-
 
 // Save and object with the joke and score after clicking the ratings
 scoreButtons.forEach(button => {
@@ -131,15 +118,13 @@ const getWeather = async () => {
     }
 }
 
-//const weatherCode = JSON.parse(weather.json)
+
 // function that will print the text weather in the DOM and take the functio get weather as an argument
 function onSuccesWeather(weather: any) {
-let stringIcon = weather.current.condition.icon
-let lastSeven  = stringIcon.slice(-7)
-
-
+    let stringIcon = weather.current.condition.icon
+    let lastSeven = stringIcon.slice(-7)
     imgWeather!.src = `day/${lastSeven}`;
-    degrees!.textContent = weather.current.feelslike_c;
+    degrees!.textContent = `${weather.current.feelslike_c}℃`;
 }
 
 //function to handle the result of weather
